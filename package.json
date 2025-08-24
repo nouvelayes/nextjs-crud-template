@@ -23,5 +23,9 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
     "@eslint/eslintrc": "^3"
+  },
+  "engines": {
+    "node": ">=22.18.0 <23.0.0",
+    "pnpm": ">=10.15.0 <11.0.0"
   }
 }
