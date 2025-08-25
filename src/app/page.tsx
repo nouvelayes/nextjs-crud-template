@@ -1,103 +1,123 @@
-import Image from "next/image";
+import React from "react";
 
-export default function Home() {
+const features = [
+  {
+    title: "Next.js 15+",
+    description:
+      "Latest app directory structure with Turbopack support for high-performance builds.",
+  },
+  {
+    title: "TypeScript 5",
+    description:
+      "Full type safety for robust, predictable, and maintainable code.",
+  },
+  {
+    title: "Tailwind CSS 4",
+    description:
+      "Utility-first styling for rapid, responsive, and maintainable UI design.",
+  },
+  {
+    title: "clsx",
+    description: "Conditional class management for dynamic UI styling.",
+  },
+  {
+    title: "dotenv-safe",
+    description:
+      "Ensures all required environment variables exist in development and production.",
+  },
+  {
+    title: "Prettier + ESLint",
+    description:
+      "Enforces consistent formatting and code quality across the team.",
+  },
+  {
+    title: "Husky + lint-staged",
+    description:
+      "Pre-commit hooks that automatically lint and format staged files.",
+  },
+  {
+    title: "Commitlint",
+    description:
+      "Enforces conventional commits for clean, standardized Git history.",
+  },
+  {
+    title: "pnpm support",
+    description: "Fast and reliable package management.",
+  },
+];
+
+const gettingStarted = [
+  <>
+    Clone the repo{" "}
+    <code className="rounded bg-gray-200 px-1 dark:bg-gray-700">
+      https://github.com/nouvelayes/nextjs-template
+    </code>
+    .
+  </>,
+  <>
+    Duplicate{" "}
+    <code className="rounded bg-gray-200 px-1 dark:bg-gray-700">
+      .env.example
+    </code>
+    , rename it as{" "}
+    <code className="rounded bg-gray-200 px-1 dark:bg-gray-700">.env</code> and
+    fill in your environment variables.
+  </>,
+  <>
+    Install dependencies:{" "}
+    <code className="rounded bg-gray-200 px-1 dark:bg-gray-700">
+      pnpm install
+    </code>
+  </>,
+  <>
+    Start development server:{" "}
+    <code className="rounded bg-gray-200 px-1 dark:bg-gray-700">
+      pnpm run dev
+    </code>
+  </>,
+];
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="flex min-h-screen flex-col items-center bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white">
+      <section className="max-w-4xl px-6 py-20 text-center">
+        <h1 className="mb-6 text-5xl font-bold md:text-6xl">
+          Next.js Template
+        </h1>
+        <p className="mb-8 text-lg text-gray-700 md:text-xl dark:text-gray-300">
+          A modern, enterprise-ready Next.js template built with
+          industry-standard best practices for scalable, maintainable, and
+          high-performance web applications.
+        </p>
+        <p className="mb-6 text-gray-500 dark:text-gray-400">
+          Everything configured for professional development teams: type safety,
+          code quality enforcement, environment management, and responsive
+          styling.
+        </p>
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <section className="grid w-full max-w-6xl grid-cols-1 gap-8 px-6 pb-20 sm:grid-cols-2 lg:grid-cols-3">
+        {features.map((feature) => (
+          <div
+            key={feature.title}
+            className="flex flex-col rounded-xl bg-white p-6 shadow transition-shadow hover:shadow-lg dark:bg-gray-800"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            <h3 className="mb-2 text-xl font-semibold">{feature.title}</h3>
+            <p className="flex-grow text-gray-700 dark:text-gray-300">
+              {feature.description}
+            </p>
+          </div>
+        ))}
+      </section>
+
+      <section className="w-full max-w-3xl px-6 pb-20 text-left">
+        <h2 className="mb-6 text-3xl font-bold">Getting Started</h2>
+        <ol className="list-inside list-decimal space-y-3 text-left text-gray-700 dark:text-gray-300">
+          {gettingStarted.map((step, i) => (
+            <li key={i}>{step}</li>
+          ))}
+        </ol>
+      </section>
+    </main>
   );
 }
