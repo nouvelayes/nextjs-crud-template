@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepare": "husky"
   },
   "dependencies": {
     "next": "15.5.0",
@@ -22,6 +23,8 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
     "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
     "prettier": "3.6.2",
     "tailwindcss": "^4",
     "typescript": "^5"
@@ -30,5 +33,12 @@
     "node": ">=22.18.0 <23.0.0",
     "pnpm": ">=10.15.0 <11.0.0"
   },
-  "engineStrict": true
+  "engineStrict": true,
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": "prettier --write"
+  }
 }
