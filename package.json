@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "prepare": "husky",
+    "lint-staged": "lint-staged",
     "commitlint": "commitlint --edit",
     "typescript-check": "tsc --noEmit"
   },
