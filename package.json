@@ -10,7 +10,11 @@
     "prepare": "husky",
     "lint-staged": "lint-staged",
     "commitlint": "commitlint --edit",
-    "typescript-check": "tsc --noEmit"
+    "typescript-check": "tsc --noEmit",
+    "prisma:push": "prisma db push",
+    "prisma:seed": "prisma db seed",
+    "get-indexes": "tsx scripts/get-indexes.ts",
+    "create-indexes": "tsx scripts/create-indexes.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
